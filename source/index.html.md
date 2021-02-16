@@ -1,14 +1,12 @@
 ---
-title: API Reference
+title: Koi Protocol
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
+language_tabs: 
   - javascript
+  - shell
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='https://discord.gg/nFXBAy6FXH'>Join the Discord Server for Help!</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -19,54 +17,78 @@ search: true
 code_clipboard: true
 ---
 
-# Introduction
+# Tools for Easy Protocolization
+pro·to·col
+/ˈprōdəˌkôl,ˈprōdəˌkäl/
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+noun
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+the official procedure or system of rules governing affairs of state or diplomatic occasions.
+"protocol forbids the prince from making any public statement in his defense"
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+# Tokenized Protocols
+Bitcoin and others have popularized the system of using tokens within a network of peers as a means of rewarding good behaviour. This addition has expanded the feasibility of protocols as tools for social change, and specifically has created a new type of economic motive which can be sharpened and honed specifically for a particular task.
 
-# Authentication
+# Koi
+The aim of the Koi network is to provide a convenient and simple way for software developers to easily concieve, implement, and deploy new mechanisms, while also enriching the public commons. 
 
-> To authorize, use this code:
+Koi provides a suite of software tools designed to:
+  1. Reward attention-based contributions, such as art and public data sets;
+  2. Reliably track and reward repeatable tasks;
+  3. Establish incentives and markets to reward profitable shifts in behaviour of (1) or (2).
 
-```ruby
-require 'kittn'
+---
+# Join the Network
+The Koi Network is made up of devices running compatible protocol software. Install the "Koi Tools" to join.
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+```javascript
+const tools  = require('koi-tools')
+const ktools = new tools()
+const walletKeyLocation = "/path/to/your/wallet.json";
+
+async () => {
+
+    await ktools.loadWallet(walletKeyLocation)
+
+    console.log('ktools', ktools)
+
+}
+
+```
+```shell
+$ npm i -g koi
+$ koi init --key "/path/to/your/wallet.json"
 ```
 
-```python
-import kittn
+> Make sure to replace `/path/to/your/wallet.json` with the location of your wallet file.
 
-api = kittn.authorize('meowmeowmeow')
-```
+<aside class="notice">
+You must replace <code>/path/to/your/wallet.json</code> with the path to a valid Arweave wallet file. 
+</aside>
+
+---
+# Registering Content
+Every 24 hours, the Koi Network votes to mint 1000 new tokens and awards them to the registered owners of the most popular content since the previous day. 
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
-  -H "Authorization: meowmeowmeow"
+koi register "GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY" 
 ```
 
 ```javascript
-const kittn = require('kittn');
+let txId = 'GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY';
 
-let api = kittn.authorize('meowmeowmeow');
+var result =  await ktools.registerData(txId);
+
+console.log('transaction', result)
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+> Make sure to replace `GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY` with the address of the content you want to register.
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Be sure to replace <code>GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY</code>. This is the address of the <a href="https://dkbkiafb4l5a3fvrlnocrjrkqumctrhb4wbnhuipdeebylufeada.arweave.net/GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY">Koi Whitepaper</a>.
 </aside>
-
+<!-- 
 # Kittens
 
 ## Get All Kittens
@@ -238,4 +260,4 @@ This endpoint deletes a specific kitten.
 Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to delete
-
+ -->
