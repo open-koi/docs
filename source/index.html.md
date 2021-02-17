@@ -88,37 +88,40 @@ console.log('transaction', result)
 <aside class="notice">
 Be sure to replace <code>GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY</code>. This is the address of the <a href="https://dkbkiafb4l5a3fvrlnocrjrkqumctrhb4wbnhuipdeebylufeada.arweave.net/GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY">Koi Whitepaper</a>.
 </aside>
-<!-- 
-# Kittens
 
-## Get All Kittens
+# Gateways
+Gateways can be added to the Koi network to include more content in the traffic rewards network. Contact us about grants to help you get set up to track traffic and reward creators!
 
-```ruby
-require 'kittn'
+## Install Koi Middleware
+The Koi middleware package provides easy traffic logging, and will soon be expanded to support proof of work headers. 
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+<aside class="warning">Gateway registration is currently limited during the testnet phase. If you have a portal you'd like to register, please contact <a href="mailto:hello@openkoi.com">hello@openkoi.com</a> and we will be happy to assist you!</aside>
 
 ```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
+npm i -g koi-logs
 ```
 
 ```javascript
-const kittn = require('kittn');
+const Express = require('express');
+// import { config } from 'dotenv';
+const { koiLogMiddleware, koiLogsDailyTask, koiLogsHelper } = require('koi-logs');
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+// config();
+
+var app = new Express ();
+
+// add koi tasks
+app.use(koiLogMiddleware);
+app.get("/logs", koiLogsHelper);
+koiLogsDailyTask() // start the daily log task
+
+// start the server listener
+app.listen(process.env.PORT || 3000, () => {
+  log.info(`[app] started on http://localhost:${process.env.PORT || 3000}`);
+});
 ```
 
+<!--
 > The above command returns JSON structured like this:
 
 ```json
