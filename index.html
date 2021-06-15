@@ -365,21 +365,21 @@
 
 <hr>
 <h1 id='join-the-network'>Join the Network</h1>
-<p>The Koi Network is made up of devices running compatible protocol software. Install the &quot;Koi Tools&quot; to join.</p>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">tools</span>  <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">koi-tools</span><span class="dl">'</span><span class="p">)</span>
-<span class="kd">const</span> <span class="nx">ktools</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">tools</span><span class="p">()</span>
+<p>The Koi Network is made up of devices running compatible protocol software. Install &quot;@_koi/sdk&quot; to join.</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">knode</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">@_koi/sdk/node</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">ktools</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">knode</span><span class="p">.</span><span class="nx">Node</span><span class="p">();</span>
 <span class="kd">const</span> <span class="nx">walletKeyLocation</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">/path/to/your/wallet.json</span><span class="dl">"</span><span class="p">;</span>
 
 <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 
-    <span class="k">await</span> <span class="nx">ktools</span><span class="p">.</span><span class="nx">loadWallet</span><span class="p">(</span><span class="nx">walletKeyLocation</span><span class="p">)</span>
+    <span class="k">await</span> <span class="nx">ktools</span><span class="p">.</span><span class="nx">nodeLoadWallet</span><span class="p">(</span><span class="nx">walletKeyLocation</span><span class="p">)</span>
 
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">ktools</span><span class="dl">'</span><span class="p">,</span> <span class="nx">ktools</span><span class="p">)</span>
 
 <span class="p">}</span>
 
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>npm i <span class="nt">-g</span> koi
-<span class="nv">$ </span>koi init <span class="nt">--key</span> <span class="s2">"/path/to/your/wallet.json"</span>
+</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>npm i @_koi/sdk
+<span class="nv">$ </span>yarn add @_koi/sdk
 </code></pre></div>
 <blockquote>
 <p>Make sure to replace <code>/path/to/your/wallet.json</code> with the location of your wallet file.</p>
@@ -392,9 +392,7 @@ You must replace <code>/path/to/your/wallet.json</code> with the path to a valid
 <hr>
 <h1 id='registering-content'>Registering Content</h1>
 <p>Every 24 hours, the Koi Network votes to mint 1000 new tokens and awards them to the registered owners of the most popular content since the previous day. </p>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-koi register <span class="s2">"GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY"</span> 
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">txId</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY</span><span class="dl">'</span><span class="p">;</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">txId</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY</span><span class="dl">'</span><span class="p">;</span>
 
 <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span>  <span class="k">await</span> <span class="nx">ktools</span><span class="p">.</span><span class="nx">registerData</span><span class="p">(</span><span class="nx">txId</span><span class="p">);</span>
 
