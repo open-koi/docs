@@ -39,16 +39,16 @@ Koi provides a suite of software tools designed to:
 
 ---
 # Join the Network
-The Koi Network is made up of devices running compatible protocol software. Install the "Koi Tools" to join.
+The Koi Network is made up of devices running compatible protocol software. Install "@_koi/sdk" to join.
 
 ```javascript
-const tools  = require('koi-tools')
-const ktools = new tools()
+const knode = require("@_koi/sdk/node");
+const ktools = new knode.Node();
 const walletKeyLocation = "/path/to/your/wallet.json";
 
 async () => {
 
-    await ktools.loadWallet(walletKeyLocation)
+    await ktools.nodeLoadWallet(walletKeyLocation)
 
     console.log('ktools', ktools)
 
@@ -56,8 +56,8 @@ async () => {
 
 ```
 ```shell
-$ npm i -g koi
-$ koi init --key "/path/to/your/wallet.json"
+$ npm i @_koi/sdk
+$ yarn add @_koi/sdk
 ```
 
 > Make sure to replace `/path/to/your/wallet.json` with the location of your wallet file.
@@ -70,10 +70,6 @@ You must replace <code>/path/to/your/wallet.json</code> with the path to a valid
 # Registering Content
 Every 24 hours, the Koi Network votes to mint 1000 new tokens and awards them to the registered owners of the most popular content since the previous day. 
 
-```shell
-# With shell, you can just pass the correct header with each request
-koi register "GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY" 
-```
 
 ```javascript
 let txId = 'GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY';
