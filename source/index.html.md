@@ -69,7 +69,7 @@ $ yarn add @_koi/sdk
 
 # Wallet Generation
 
-Koi uses Arweave wallet for interacting with the network. If you don't yet have a Arweave wallet, you can generate a standard wallet, or a mnemonic wallet using our SDK.
+Koi uses Arweave wallets for interacting with the network. If you don't yet have a Arweave wallet, you can generate a standard wallet, or a mnemonic wallet using our SDK.
 
 ```javascript
 // Standard wallet
