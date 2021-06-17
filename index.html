@@ -377,7 +377,11 @@
   <span class="k">await</span> <span class="nx">ktools</span><span class="p">.</span><span class="nx">nodeLoadWallet</span><span class="p">(</span><span class="nx">walletKeyLocation</span><span class="p">)</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">ktools</span><span class="dl">'</span><span class="p">,</span> <span class="nx">ktools</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// For web and browser environments</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>/path/to/your/wallet.json</code> with the location of your wallet file.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// For web and browser environments</span>
 <span class="kd">const</span> <span class="nx">kweb</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">@_koi/sdk/web</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">const</span> <span class="nx">ktools</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kweb</span><span class="p">.</span><span class="nx">Web</span><span class="p">();</span>
 
@@ -385,10 +389,6 @@
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>npm i @_koi/sdk
 <span class="nv">$ </span>yarn add @_koi/sdk
 </code></pre></div>
-<blockquote>
-<p>Make sure to replace <code>/path/to/your/wallet.json</code> with the location of your wallet file.</p>
-</blockquote>
-
 <aside class="notice">
 You must replace <code>/path/to/your/wallet.json</code> with the path to a valid Arweave wallet file. 
 </aside>
