@@ -84,6 +84,10 @@ console.log("My wallet: ", ktools.wallet);
 console.log("My mnemonic: ", ktools.mnemonic);
 // "violin artwork lonely inject resource jewel purity village abstract neglect panda license"
 
+// View wallet address
+const myAddress = await ktools.getWalletAddress();
+console.log(myAddress);
+// "FeSD9TV8aB0GK0yby8A40KEX1N-3wrJQTDbRW4uUiEA"
 ```
 
 # Registering Content
