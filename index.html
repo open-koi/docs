@@ -323,6 +323,9 @@
             <a href="#join-the-network" class="toc-h1 toc-link" data-title="Join the Network">Join the Network</a>
           </li>
           <li>
+            <a href="#wallet-generation" class="toc-h1 toc-link" data-title="Wallet Generation">Wallet Generation</a>
+          </li>
+          <li>
             <a href="#registering-content" class="toc-h1 toc-link" data-title="Registering Content">Registering Content</a>
           </li>
           <li>
@@ -388,11 +391,21 @@
 <span class="c1">// Use the Koi extension to interact with the wallet</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>npm i @_koi/sdk
 <span class="nv">$ </span>yarn add @_koi/sdk
-</code></pre></div>
-<aside class="notice">
-You must replace <code>/path/to/your/wallet.json</code> with the path to a valid Arweave wallet file. 
-</aside>
-<h1 id='registering-content'>Registering Content</h1>
+</code></pre></div><h1 id='wallet-generation'>Wallet Generation</h1>
+<p>Koi uses Arweave wallet for interacting with the network. If you don&#39;t yet have a Arweave wallet, you can generate a standard wallet, or a mnemonic wallet using our SDK.</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Standard wallet</span>
+<span class="k">await</span> <span class="nx">ktools</span><span class="p">.</span><span class="nx">generateWallet</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">My wallet: </span><span class="dl">"</span><span class="p">,</span> <span class="nx">ktools</span><span class="p">.</span><span class="nx">wallet</span><span class="p">);</span>
+<span class="c1">// {kty:"RSA", n:"0vx7agoebGcQSuu...", e:"AQAB"... }</span>
+
+<span class="c1">// Mnemonic wallet</span>
+<span class="k">await</span> <span class="nx">ktools</span><span class="p">.</span><span class="nx">generateWallet</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">My wallet: </span><span class="dl">"</span><span class="p">,</span> <span class="nx">ktools</span><span class="p">.</span><span class="nx">wallet</span><span class="p">);</span>
+<span class="c1">// {kty:"RSA", n:"0vx7agoebGcQSuu...", e:"AQAB"... }</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">My mnemonic: </span><span class="dl">"</span><span class="p">,</span> <span class="nx">ktools</span><span class="p">.</span><span class="nx">mnemonic</span><span class="p">);</span>
+<span class="c1">// "violin artwork lonely inject resource jewel purity village abstract neglect panda license"</span>
+
+</code></pre></div><h1 id='registering-content'>Registering Content</h1>
 <p>Every 24 hours, the Koi Network votes to mint 1000 new tokens and awards them to the registered owners of the most popular content since the previous day. </p>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">txId</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY</span><span class="dl">'</span><span class="p">;</span>
 
@@ -405,7 +418,7 @@ You must replace <code>/path/to/your/wallet.json</code> with the path to a valid
 </blockquote>
 <h1 id='transfer-koi-tokens'>Transfer Koi Tokens</h1>
 <p>Transferring Koi Tokens is easy using our SDK, all that&#39;s needed is a small amount of AR token.</p>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">friendAddress</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">FeSD9TV8aB0GK0yby8A40KEX1N-3wrJQTDbRW4uUiEA</span><span class="dl">'</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">receiverAddress</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">FeSD9TV8aB0GK0yby8A40KEX1N-3wrJQTDbRW4uUiEA</span><span class="dl">'</span>
 <span class="kd">const</span> <span class="nx">transferTxId</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">ktools</span><span class="p">.</span><span class="nx">transfer</span><span class="p">(</span><span class="mf">123.456</span><span class="p">,</span> <span class="nx">friendAddress</span><span class="p">,</span> <span class="dl">'</span><span class="s1">KOI</span><span class="dl">'</span><span class="p">);</span>
 </code></pre></div>
 <blockquote>
