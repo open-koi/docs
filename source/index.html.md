@@ -37,24 +37,30 @@ Koi provides a suite of software tools designed to:
   2. Reliably track and reward repeatable tasks;
   3. Establish incentives and markets to reward profitable shifts in behaviour of (1) or (2).
 
----
 # Join the Network
 The Koi Network is made up of devices running compatible protocol software. Install "@_koi/sdk" to join.
 
 ```javascript
+// For NodeJS environments
 const knode = require("@_koi/sdk/node");
 const ktools = new knode.Node();
+
 const walletKeyLocation = "/path/to/your/wallet.json";
 
 async () => {
-
-    await ktools.nodeLoadWallet(walletKeyLocation)
-
-    console.log('ktools', ktools)
-
+  await ktools.nodeLoadWallet(walletKeyLocation)
+  console.log('ktools', ktools)
 }
-
 ```
+
+```javascript
+// For web and browser environments
+const kweb = require("@_koi/sdk/web");
+const ktools = new kweb.Web();
+
+// Use the Koi extension to interact with the wallet
+```
+
 ```shell
 $ npm i @_koi/sdk
 $ yarn add @_koi/sdk
@@ -66,7 +72,6 @@ $ yarn add @_koi/sdk
 You must replace <code>/path/to/your/wallet.json</code> with the path to a valid Arweave wallet file. 
 </aside>
 
----
 # Registering Content
 Every 24 hours, the Koi Network votes to mint 1000 new tokens and awards them to the registered owners of the most popular content since the previous day. 
 
@@ -79,11 +84,15 @@ var result =  await ktools.registerData(txId);
 console.log('transaction', result)
 ```
 
-> Make sure to replace `GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY` with the address of the content you want to register.
+> Make sure to replace [`GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY`]("https://dkbkiafb4l5a3fvrlnocrjrkqumctrhb4wbnhuipdeebylufeada.arweave.net/GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY") with the address of the content you want to register.
 
-<aside class="notice">
-Be sure to replace <code>GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY</code>. This is the address of the <a href="https://dkbkiafb4l5a3fvrlnocrjrkqumctrhb4wbnhuipdeebylufeada.arweave.net/GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY">Koi Whitepaper</a>.
-</aside>
+# Transfer Koi Tokens
+Transferring Koi Tokens is easy using our SDK, all that's needed is a small amount of AR token.
+```javascript
+const friendAddress = 'FeSD9TV8aB0GK0yby8A40KEX1N-3wrJQTDbRW4uUiEA'
+const transferTxId = await ktools.transfer(123.456, friendAddress, 'KOI');
+```
+> Make sure to replace `FeSD9TV8aB0GK0yby8A40KEX1N-3wrJQTDbRW4uUiEA` with the wallet address you would like to transfer to.
 
 # Gateways
 Gateways can be added to the Koi network to include more content in the traffic rewards network. Contact us about grants to help you get set up to track traffic and reward creators!
