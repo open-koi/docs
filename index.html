@@ -405,6 +405,10 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">My mnemonic: </span><span class="dl">"</span><span class="p">,</span> <span class="nx">ktools</span><span class="p">.</span><span class="nx">mnemonic</span><span class="p">);</span>
 <span class="c1">// "violin artwork lonely inject resource jewel purity village abstract neglect panda license"</span>
 
+<span class="c1">// View wallet address</span>
+<span class="kd">const</span> <span class="nx">myAddress</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">ktools</span><span class="p">.</span><span class="nx">getWalletAddress</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myAddress</span><span class="p">);</span>
+<span class="c1">// "FeSD9TV8aB0GK0yby8A40KEX1N-3wrJQTDbRW4uUiEA"</span>
 </code></pre></div><h1 id='registering-content'>Registering Content</h1>
 <p>Every 24 hours, the Koi Network votes to mint 1000 new tokens and awards them to the registered owners of the most popular content since the previous day. </p>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">txId</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY</span><span class="dl">'</span><span class="p">;</span>
