@@ -52,6 +52,7 @@ async () => {
   console.log('ktools', ktools)
 }
 ```
+> Make sure to replace `/path/to/your/wallet.json` with the location of your wallet file.
 
 ```javascript
 // For web and browser environments
@@ -66,7 +67,7 @@ $ npm i @_koi/sdk
 $ yarn add @_koi/sdk
 ```
 
-> Make sure to replace `/path/to/your/wallet.json` with the location of your wallet file.
+
 
 <aside class="notice">
 You must replace <code>/path/to/your/wallet.json</code> with the path to a valid Arweave wallet file. 
