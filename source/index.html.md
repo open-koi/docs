@@ -67,11 +67,24 @@ $ npm i @_koi/sdk
 $ yarn add @_koi/sdk
 ```
 
+# Wallet Generation
 
+Koi uses Arweave wallet for interacting with the network. If you don't yet have a Arweave wallet, you can generate a standard wallet, or a mnemonic wallet using our SDK.
 
-<aside class="notice">
-You must replace <code>/path/to/your/wallet.json</code> with the path to a valid Arweave wallet file. 
-</aside>
+```javascript
+// Standard wallet
+await ktools.generateWallet();
+console.log("My wallet: ", ktools.wallet);
+// {kty:"RSA", n:"0vx7agoebGcQSuu...", e:"AQAB"... }
+
+// Mnemonic wallet
+await ktools.generateWallet(true);
+console.log("My wallet: ", ktools.wallet);
+// {kty:"RSA", n:"0vx7agoebGcQSuu...", e:"AQAB"... }
+console.log("My mnemonic: ", ktools.mnemonic);
+// "violin artwork lonely inject resource jewel purity village abstract neglect panda license"
+
+```
 
 # Registering Content
 Every 24 hours, the Koi Network votes to mint 1000 new tokens and awards them to the registered owners of the most popular content since the previous day. 
@@ -91,7 +104,7 @@ console.log('transaction', result)
 Transferring Koi Tokens is easy using our SDK, all that's needed is a small amount of AR token.
 
 ```javascript
-const friendAddress = 'FeSD9TV8aB0GK0yby8A40KEX1N-3wrJQTDbRW4uUiEA'
+const receiverAddress = 'FeSD9TV8aB0GK0yby8A40KEX1N-3wrJQTDbRW4uUiEA'
 const transferTxId = await ktools.transfer(123.456, friendAddress, 'KOI');
 ```
 
