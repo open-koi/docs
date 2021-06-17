@@ -89,10 +89,12 @@ console.log('transaction', result)
 
 # Transfer Koi Tokens
 Transferring Koi Tokens is easy using our SDK, all that's needed is a small amount of AR token.
+
 ```javascript
 const friendAddress = 'FeSD9TV8aB0GK0yby8A40KEX1N-3wrJQTDbRW4uUiEA'
 const transferTxId = await ktools.transfer(123.456, friendAddress, 'KOI');
 ```
+
 > Make sure to replace `FeSD9TV8aB0GK0yby8A40KEX1N-3wrJQTDbRW4uUiEA` with the wallet address you would like to transfer to.
 
 # Gateways
