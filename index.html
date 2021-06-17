@@ -404,12 +404,10 @@ You must replace <code>/path/to/your/wallet.json</code> with the path to a valid
 <p>Make sure to replace <a href="&quot;https://dkbkiafb4l5a3fvrlnocrjrkqumctrhb4wbnhuipdeebylufeada.arweave.net/GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY&quot;"><code>GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY</code></a> with the address of the content you want to register.</p>
 </blockquote>
 <h1 id='transfer-koi-tokens'>Transfer Koi Tokens</h1>
-<p>Transferring Koi Tokens is easy using our SDK, all that&#39;s needed is a small amount of AR token.
-<code>javascript
-const friendAddress = &#39;FeSD9TV8aB0GK0yby8A40KEX1N-3wrJQTDbRW4uUiEA&#39;
-const transferTxId = await ktools.transfer(123.456, friendAddress, &#39;KOI&#39;);
-</code></p>
-
+<p>Transferring Koi Tokens is easy using our SDK, all that&#39;s needed is a small amount of AR token.</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">friendAddress</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">FeSD9TV8aB0GK0yby8A40KEX1N-3wrJQTDbRW4uUiEA</span><span class="dl">'</span>
+<span class="kd">const</span> <span class="nx">transferTxId</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">ktools</span><span class="p">.</span><span class="nx">transfer</span><span class="p">(</span><span class="mf">123.456</span><span class="p">,</span> <span class="nx">friendAddress</span><span class="p">,</span> <span class="dl">'</span><span class="s1">KOI</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div>
 <blockquote>
 <p>Make sure to replace <code>FeSD9TV8aB0GK0yby8A40KEX1N-3wrJQTDbRW4uUiEA</code> with the wallet address you would like to transfer to.</p>
 </blockquote>
