@@ -326,6 +326,9 @@
             <a href="#registering-content" class="toc-h1 toc-link" data-title="Registering Content">Registering Content</a>
           </li>
           <li>
+            <a href="#transfer-koi-tokens" class="toc-h1 toc-link" data-title="Transfer Koi Tokens">Transfer Koi Tokens</a>
+          </li>
+          <li>
             <a href="#gateways" class="toc-h1 toc-link" data-title="Gateways">Gateways</a>
               <ul class="toc-list-h2">
                   <li>
@@ -362,22 +365,23 @@
   1. Reward attention-based contributions, such as art and public data sets;
   2. Reliably track and reward repeatable tasks;
   3. Establish incentives and markets to reward profitable shifts in behaviour of (1) or (2).</p>
-
-<hr>
 <h1 id='join-the-network'>Join the Network</h1>
 <p>The Koi Network is made up of devices running compatible protocol software. Install &quot;@_koi/sdk&quot; to join.</p>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">knode</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">@_koi/sdk/node</span><span class="dl">"</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// For NodeJS environments</span>
+<span class="kd">const</span> <span class="nx">knode</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">@_koi/sdk/node</span><span class="dl">"</span><span class="p">);</span>
 <span class="kd">const</span> <span class="nx">ktools</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">knode</span><span class="p">.</span><span class="nx">Node</span><span class="p">();</span>
+
 <span class="kd">const</span> <span class="nx">walletKeyLocation</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">/path/to/your/wallet.json</span><span class="dl">"</span><span class="p">;</span>
 
 <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-
-    <span class="k">await</span> <span class="nx">ktools</span><span class="p">.</span><span class="nx">nodeLoadWallet</span><span class="p">(</span><span class="nx">walletKeyLocation</span><span class="p">)</span>
-
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">ktools</span><span class="dl">'</span><span class="p">,</span> <span class="nx">ktools</span><span class="p">)</span>
-
+  <span class="k">await</span> <span class="nx">ktools</span><span class="p">.</span><span class="nx">nodeLoadWallet</span><span class="p">(</span><span class="nx">walletKeyLocation</span><span class="p">)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">ktools</span><span class="dl">'</span><span class="p">,</span> <span class="nx">ktools</span><span class="p">)</span>
 <span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// For web and browser environments</span>
+<span class="kd">const</span> <span class="nx">kweb</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">@_koi/sdk/web</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">ktools</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">kweb</span><span class="p">.</span><span class="nx">Web</span><span class="p">();</span>
 
+<span class="c1">// Use the Koi extension to interact with the wallet</span>
 </code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="nv">$ </span>npm i @_koi/sdk
 <span class="nv">$ </span>yarn add @_koi/sdk
 </code></pre></div>
@@ -388,8 +392,6 @@
 <aside class="notice">
 You must replace <code>/path/to/your/wallet.json</code> with the path to a valid Arweave wallet file. 
 </aside>
-
-<hr>
 <h1 id='registering-content'>Registering Content</h1>
 <p>Every 24 hours, the Koi Network votes to mint 1000 new tokens and awards them to the registered owners of the most popular content since the previous day. </p>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">txId</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY</span><span class="dl">'</span><span class="p">;</span>
@@ -399,12 +401,18 @@ You must replace <code>/path/to/your/wallet.json</code> with the path to a valid
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">transaction</span><span class="dl">'</span><span class="p">,</span> <span class="nx">result</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
-<p>Make sure to replace <code>GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY</code> with the address of the content you want to register.</p>
+<p>Make sure to replace <a href="&quot;https://dkbkiafb4l5a3fvrlnocrjrkqumctrhb4wbnhuipdeebylufeada.arweave.net/GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY&quot;"><code>GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY</code></a> with the address of the content you want to register.</p>
 </blockquote>
+<h1 id='transfer-koi-tokens'>Transfer Koi Tokens</h1>
+<p>Transferring Koi Tokens is easy using our SDK, all that&#39;s needed is a small amount of AR token.
+<code>javascript
+const friendAddress = &#39;FeSD9TV8aB0GK0yby8A40KEX1N-3wrJQTDbRW4uUiEA&#39;
+const transferTxId = await ktools.transfer(123.456, friendAddress, &#39;KOI&#39;);
+</code></p>
 
-<aside class="notice">
-Be sure to replace <code>GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY</code>. This is the address of the <a href="https://dkbkiafb4l5a3fvrlnocrjrkqumctrhb4wbnhuipdeebylufeada.arweave.net/GoKkAKHi-g2WsVtcKKYqhRgpxOHlgtPRDxkIHC6FIAY">Koi Whitepaper</a>.
-</aside>
+<blockquote>
+<p>Make sure to replace <code>FeSD9TV8aB0GK0yby8A40KEX1N-3wrJQTDbRW4uUiEA</code> with the wallet address you would like to transfer to.</p>
+</blockquote>
 <h1 id='gateways'>Gateways</h1>
 <p>Gateways can be added to the Koi network to include more content in the traffic rewards network. Contact us about grants to help you get set up to track traffic and reward creators!</p>
 <h2 id='install-koi-middleware'>Install Koi Middleware</h2>
